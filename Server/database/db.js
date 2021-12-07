@@ -1,19 +1,16 @@
-const { MongoClient, ObjectId } = require("mongodb");
-
+const MongoClient = require('mongodb').MongoClient;
 const mongoURL = 'mongodb://127.0.0.1:27017'
-const mongoClient = new MongoClient(mongoURL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
 
-var db
-mongoClient.connect((err, client) => {
-    if (client) {
-        db = client.db("storyTime");
-    } else {
-        console.warn(err)
+function connect(url) {
+    // specify db name
+    return MongoClient.connect(url).then(client => client.db("users"));
+}
+
+module.exports = async function() {
+    let databases = await Promise.all([connect(mongoURL)]);
+
+    return {
+        // return multiple database connections
+        production: databases[0]
     }
-})
-
-
-module.exports = db;
+}

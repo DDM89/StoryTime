@@ -1,14 +1,20 @@
-const { MongoClient, ObjectId } = require("mongodb");
+// const express = require('express');
+// const {ObjectId} = require("mongodb");
 
-const db = require("../database/db");
+// const db = require("../database/db");
 
-const users = {
-    getUsers() {
-        const cursor = db.collection('users').find()
-        cursor.toArray()
-        return cursor 
-    }
-}
+// const users = {
+//     getUsers(req) {
+//         // const users = await req.db.collection('users').find().toArray();
+//         // return users;
+//         // console.log(req)
+//         req.db.production.collection('users').find().toArray().then(result => {
+//             return result
+//         }).catch(err => {
+//             return err
+//         })
+//     }
+// }
 
 
-module.exports = users;
+// module.exports = users;
