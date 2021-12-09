@@ -10,4 +10,10 @@ router.get('/', (req, res) => {
     })
 });
 
+router.post('/', (req, res) => {
+    console.log(req.body)
+    req.db.production.collection('users').insertOne({name:req.body.name, email: req.body.email, passwordHash: req.body.password , stories: [], comments:[]});
+    res.json({ message: 'logged in successfully'})
+})
+
 module.exports = router;
