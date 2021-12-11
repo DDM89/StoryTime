@@ -1,9 +1,9 @@
-import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './style/Header.css';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import {Test} from './components/ApiTest';
-// import {Forms} from './components/Form';
+import {Forms} from './components/Form';
 import {Header} from './components/HeaderNav';
 import {Home} from './components/Home'
 import {Stories} from './components/Stories'
@@ -17,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}></Route>
         <Route path="/stories" element={<Stories/>}></Route>
+        <Route path="/form" element={<Forms/>}></Route>
       </Routes>
       </BrowserRouter>
     </div>

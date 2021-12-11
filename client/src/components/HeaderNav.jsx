@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-// import { Home } from "./Home";
-// import Stories from "./Stories";
+
 
 export function Header() {
 
@@ -9,12 +8,13 @@ export function Header() {
             <header>
                 <div className="wrapper">
                     <div className="logo">
-                        <a href="#">Story Time</a>
+                        <a href="/">Story Time</a>
                     </div>
                 </div>
                 <nav>
                     <Link className="link" to="/">Home</Link>
                     <Link className="link" to="/stories">Stories</Link>
+                    <Link className="link" to="/form">Form Test</Link>
                 </nav>
                 
             </header>

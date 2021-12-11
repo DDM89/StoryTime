@@ -18,7 +18,7 @@ export function Forms() {
         }
 
     return(
-        <div>
+        <div className="content-area">
                             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicName">
                     <Form.Label>Name</Form.Label>
@@ -49,3 +49,4 @@ export function Forms() {
         </div>
     )
 }
+
