@@ -15,7 +15,7 @@ const app = express();
 
 app.use(express.static("./client/build"));
 
-// const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3001;
 
 initializeDatabases(config.dbConnectionString).then(dbs => {
   
@@ -23,7 +23,7 @@ initializeDatabases(config.dbConnectionString).then(dbs => {
       req.db = dbs;
       return next();
   })
-  routes(app, dbs).listen(3001, () => console.log('Listening on port 3001'))
+  routes(app, dbs).listen(port, () => console.log('Listening on port 3001'))
 }).catch(err => {
   console.error('Failed to make all database connections!')
   console.error(err)
