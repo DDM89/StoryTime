@@ -15,7 +15,7 @@ const app = express();
 
 app.use(express.static("./client/build"));
 
-const handler = (req, res) => res.send(path.join(__dirname, "./client/index.html"))
+const handler = (req, res) => res.send(path.join(__dirname, "./client/public/index.html"))
 
 const route = ["/", "/stories", "/form"]
 
