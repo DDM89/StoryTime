@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './style/Header.css';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import {Test} from './components/ApiTest';
 import {Forms} from './components/Form';

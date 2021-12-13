@@ -1,4 +1,7 @@
-
+.App {
+    text-align: center;
+  }
+  
 .wrapper{
     width: 1170px;
     margin: 0 auto;
