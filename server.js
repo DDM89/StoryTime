@@ -15,11 +15,11 @@ const app = express();
 
 app.use(express.static("./client/build"));
 
-// const handler = (req, res) => res.send(path.join(__dirname, "./client/public/index.html"))
+const handler = (req, res) => res.send(path.join(__dirname, "./client/public/index.html"))
 
-// const route = ["/", "/stories", "/form"]
+const route = ["/", "/stories", "/form"]
 
-// route.forEach( rout => app.get(rout, handler) )
+route.forEach( rout => app.get(rout, handler) )
 
 app.get('*', function(req, res) {
   res.sendFile('index.html', {root: path.join(__dirname, './client/build/')});
