@@ -6,6 +6,7 @@ import {Forms} from './components/Form';
 import {Header} from './components/HeaderNav';
 import {Home} from './components/Home'
 import {Stories} from './components/Stories'
+// import LoginButton from "./components/LoginButton";
  
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/form" element={<Forms/>}></Route>
       </Routes>
       </BrowserRouter>
+      {/* <LoginButton/> */}
     </div>
   );
 }
