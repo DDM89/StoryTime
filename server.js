@@ -15,6 +15,12 @@ const app = express();
 
 app.use(express.static("./client/build"));
 
+const handler = (req, res) => res.send(path.join(__dirname, "./client/index.html"))
+
+const route = ["/", "/stories", "/form"]
+
+route.forEach( rout => app.get(rout, handler) )
+
 const port = process.env.PORT || 3001;
 
 initializeDatabases(config.dbConnectionString).then(dbs => {
