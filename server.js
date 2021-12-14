@@ -21,9 +21,6 @@ const route = ["/", "/stories", "/form"]
 
 route.forEach( rout => app.get(rout, handler) )
 
-app.get('*', function(req, res) {
-  res.sendFile('index.html', {root: path.join(__dirname, './client/build/')});
-});
 
 const port = process.env.PORT || 3001;
 
