@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require("express");
 
 const config = require('./config')
@@ -15,12 +16,15 @@ const app = express();
 
 app.use(express.static("./client/build"));
 
-const handler = (req, res) => res.send(path.join(__dirname, "./client/public/index.html"))
+const handler = (req, res) => res.sendFile(path.join(__dirname, "./client/build/index.html"))
 
 const route = ["/", "/stories", "/form"]
 
 route.forEach( rout => app.get(rout, handler) )
 
+// app.get('*', function(req, res) {
+//   res.sendFile('index.html', {root: path.join(__dirname, './client/build/')});
+// });
 
 const port = process.env.PORT || 3001;
 
