@@ -1,12 +1,14 @@
 import React, { useState, useRef } from "react";
 import JoditEditor from "jodit-react";
+import axios from 'axios';
 
 
 
 function AddStory() {
 
     const editor = useRef(null);
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState(null);
+  
   
   const config = {
     removeButtons: ["source"],
@@ -16,6 +18,10 @@ function AddStory() {
   function sendStory(event){
       event.preventDefault()
       console.log(content)
+      const story = {story: content}
+      axios.post('/api/users/addStory', story).then((res) => {
+                
+            })
   }
 
   return (

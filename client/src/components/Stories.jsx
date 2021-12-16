@@ -8,8 +8,9 @@ export function Stories() {
     useEffect(() => {
         axios.get('/api/users').then(res => {
             setStory(res.data)
-            console.log(res.data)
-            
+            console.log(res.data[0].story[0])
+            const hope = document.getElementById("story")
+            hope.innerHTML = res.data[0].story[0]
         })
     }, [])
 
@@ -24,12 +25,10 @@ export function Stories() {
                     {story.map((stor, index)=>
                     <div key={index}>
                         <p>{stor.name}</p>
-                    {stor.stories.map((s, index)=> {
-                       return <div key={index}>
-                            <p>{s.title}</p>
-                            <p>{s.body}</p>
-                        </div>
-                    })}    
+                        <p>{stor.title}</p>
+                        <p>{stor.genre}</p>
+                        <div id="story"></div>
+                    
                     </div>)}
         </div>
     )
