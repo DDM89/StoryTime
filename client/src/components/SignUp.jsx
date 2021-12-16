@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import axios from 'axios';
 
-export function Forms() {
+function SignUp() {
 
         function handleSubmit(event) {
             event.preventDefault()
@@ -49,4 +49,6 @@ export function Forms() {
         </div>
     )
 }
+
+export default SignUp;
 

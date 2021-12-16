@@ -18,7 +18,7 @@ app.use(express.static("./client/build"));
 
 const handler = (req, res) => res.sendFile(path.join(__dirname, "./client/build/index.html"))
 
-const route = ["/", "/stories", "/form"]
+const route = ["/", "/stories", "/sign_up"]
 
 route.forEach( rout => app.get(rout, handler) )
 
