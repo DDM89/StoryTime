@@ -1,10 +1,11 @@
 .App {
-    text-align: center;
+    /* text-align: center; */
+    margin: 0 auto;
   }
   
 .wrapper{
-    width: 1170px;
-    margin: 0 auto;
+    /* width: 1170px; */
+    /* margin: 0 auto; */
 }
 header{
     height: 100px;
@@ -82,3 +83,11 @@ nav{
     font-family: merienda;
     line-height: 30px;
 }
+
+.add-story {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: rgb(248, 247, 247);
+    border: block 5px black;
+}
+
