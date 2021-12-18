@@ -21,7 +21,7 @@ export function Header() {
                 
             </header>
             <div className="banner-area">
-                <h2>Something To go here</h2>
+                <h2>A story of struggle street</h2>
             </div>
             
         </div>
