@@ -1,18 +1,34 @@
 import axios from 'axios';
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 
 
 export function Stories() {
-    const [story, setStory] = useState([])
+    
+    const storyDiv = document.getElementsByClassName("render_stories")
 
     useEffect(() => {
         axios.get('/api/users').then(res => {
-            setStory(res.data)
-            console.log(res.data[0].story[0])
-            const hope = document.getElementById("story")
-            hope.innerHTML = res.data[0].story[0]
+            
+            
+            
+            for (const info of res.data) {
+                const author = document.createElement("h1")
+                author.innerText = info.author
+                storyDiv[0].append(author)
+                const title = document.createElement("h3")
+                title.innerText = info.title
+                storyDiv[0].append(title)
+                const story = document.createElement("div")
+                story.innerHTML = info.story
+                storyDiv[0].append(story)
+                
+            }
+            
         })
-    }, [])
+    }, )
+
+    
+
 
     
     
@@ -22,14 +38,9 @@ export function Stories() {
         
         <div className="content-area">
             <h1>Story Page</h1>
-                    {story.map((stor, index)=>
-                    <div key={index}>
-                        <p>{stor.name}</p>
-                        <p>{stor.title}</p>
-                        <p>{stor.genre}</p>
-                        <div id="story"></div>
-                    
-                    </div>)}
+            <div className="render_stories">
+
+            </div>     
         </div>
     )
 }

@@ -6,19 +6,13 @@ const router = express.Router();
 router.get('/', (req, res) => {
     // TODO: Move this logic to models
     req.db.production.collection('users').find().toArray((err, docs) => {
-        const storyInfo = docs.map((info)=> {
-            return {
-                name:info.name,
-                title:info.stories.map((s)=> {return s.title}),
-                genre:info.stories.map((s)=> {return s.genre}),
-                story:info.stories.map((s)=> {return s.body})
-            }
+        res.json(docs);
         })
-        res.json(storyInfo);
-    })
+        
+    
 });
 
-router.post('/', (req, res) => {
+router.post('/', (req, res) => { // ADD THE NAME TO THE STORY OBJECT AND DATE
     // console.log(req.body)
     req.db.production.collection('users').insertOne({name:req.body.name, email: req.body.email,
          passwordHash: req.body.password ,
@@ -27,10 +21,15 @@ router.post('/', (req, res) => {
 });
 
 router.post('/addStory', (req, res) => {
-    console.log(req.body.story)
-    req.db.production.collection('users').updateOne({name:"Daniel Nilsen-Murphy"}, {$push: { stories: {title: 'Fluffy', genre: 'Horror', body: req.body.story}}});
+    console.log(req.body)
+    req.db.production.collection('users').insertOne({author:req.body.author, title:req.body.title, story: req.body.story});
+   res.json({ message: 'successfully'})
     
-    res.json({ message: 'logged in successfully'})
+    
 });
+
+router.post('/delete', (req, res) => {
+    req.db.production.collection('users').deleteOne({name:"DanDan"});
+})
 
 module.exports = router;
